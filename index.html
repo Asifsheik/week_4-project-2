@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+    <link rel="stylesheet" href="./mgs_style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Message</h2>
+        <form id="forms">
+
+
+        <input type="textarea" id="mgs" placeholder="Only 50 characters allowed..." maxlength="50">
+
+        <div class="count" id="charcount"></div>
+
+
+        <button id="submitbtn">
+            Done
+        </button>
+
+        <p class="success" id="successmessage"></p>
+
+        </form>
+
+        <script>
+            let textarea = document.getElementById("mgs")
+            let charcount = document.getElementById("charcount")
+            let submitbtn =document.getElementById("submitbtn")
+            let endmgs=document.getElementById("successmessage")
+            let form=document.getElementById("forms")
+
+            textarea.addEventListener("input", () => {   
+                endmgs.textContent=""           
+                let count= textarea.value.length;
+                charcount.textContent = `Still ${50-count} / 50 Characters Remaining for your message`
+                if(count===50){
+                    alert("you reached the maximum message content")
+                }
+            });
+            
+
+            form.addEventListener("submit",(event)=>{
+                event.preventDefault();
+                if(textarea.value!=""){
+                endmgs.textContent="Your message Sucessfully Submitted"
+                form.reset()
+                charcount.textContent = ""
+                }
+                else{
+                    endmgs.textContent = "Please Fill up the message to submit"
+                }
+                
+
+            });
+                    
+        </script>
+
+
+</body>
+
+</html>
