@@ -16,6 +16,11 @@
             border-radius: 10px;
             border: solid gray 2px;
         }
+        .count{
+            color: red;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
 
         h2 {
             text-align: center;
